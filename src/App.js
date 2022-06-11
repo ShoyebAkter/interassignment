@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { useQuery, gql } from "@apollo/client";
+
+const CURRENCY_QUERY = gql`
+query{
+  currencies{
+    label,
+    symbol
+  }
+}
+`;
 
 function App() {
+  const { data, loading, error } = useQuery(CURRENCY_QUERY);
+
+  if (loading) return "Loading...";
+  if (error) return <pre>{error.message}</pre>
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>SpaceX Launches</h1>
+      <ul>
+        {data.currencies.map((launch) => (
+          <li >{launch.label} -- {launch.symbol}</li>
+        ))}
+      </ul>
     </div>
   );
 }
