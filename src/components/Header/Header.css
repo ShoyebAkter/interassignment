@@ -1,0 +1,28 @@
+.header{
+    height: 80px;
+    background-color: #edf0f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.left {
+    font-size: 17px;
+    margin-left: 36px;
+}
+.right a{
+    color: #2e2d2d;
+    margin-right: 15px;
+    text-decoration: none;
+}
+.left a{
+    margin: 0;
+    color: #2e2d2d;
+    margin-right: 5px;
+    text-decoration: none;
+}
+.left:hover{
+    color: rgb(93, 231, 127);
+}
