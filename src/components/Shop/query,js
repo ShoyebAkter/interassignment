@@ -1,0 +1,66 @@
+for all categories detail information
+query{
+  categories{
+    name,
+    products{
+      id,
+      name,
+      inStock,
+      gallery,
+      description,
+      category,
+      brand,
+      prices{
+        currency{
+          label,
+          symbol
+        },
+        amount
+      },
+      attributes{
+        id,
+        name,
+        type,
+        items{
+          displayValue,
+          value,
+          id
+        }
+      }
+    }
+  }
+}
+
+
+
+for all products
+query{
+    product(id:"huarache-x-stussy-le"){
+      name,
+      inStock,
+      gallery,
+      description,
+      category,
+      brand,
+      prices{
+        currency{
+          label,
+          symbol
+        },
+        amount
+      },
+      attributes{
+        id,
+        name,
+        type,
+        items{
+          displayValue,
+          value
+        }
+      }
+    }
+  
+}
+
+
+
