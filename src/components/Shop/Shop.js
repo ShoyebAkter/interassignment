@@ -40,6 +40,10 @@ const Shop = () => {
      if (loading) return "Loading...";
     if (error) return <pre>{error.message}</pre>
 
+    // const handleDetails=(data)=>{
+
+    // }
+
     // const handleAddToCart = (selectedProduct) =>{
     //     console.log(selectedProduct);
     //     let newCart = [];
@@ -60,12 +64,13 @@ const Shop = () => {
 
     return (
         <div className='shop-container'>
-            {/* <div className="products-container">
+            <div className="products-container">
                 {
-                   data.product.gallery.map(image=><Product 
-                        image={image}
+                   data.product.gallery.map((image,index)=><Product 
                         data={data}
-                        handleAddToCart={handleAddToCart}
+                        index={index}
+                        image={image}
+                        // handleAddToCart={handleAddToCart}
                         ></Product>)
                 }
             </div>
@@ -73,7 +78,7 @@ const Shop = () => {
                 <Cart cart={cart}>
                     
                 </Cart>
-            </div> */}
+            </div>
         </div>
     );
 };

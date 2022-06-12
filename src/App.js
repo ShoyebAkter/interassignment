@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import { Routes } from 'react-router-dom';
 import Shop from './components/Shop/Shop';
+import ProductDetails from './components/Product/ProductDetails';
 
 
 
@@ -18,6 +19,7 @@ function App() {
     <div>
        <Header></Header>
        <Shop/>
+       <ProductDetails/>
     </div>
   );
 }
