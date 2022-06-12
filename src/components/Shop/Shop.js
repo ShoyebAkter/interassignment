@@ -3,6 +3,7 @@ import { useQuery, gql } from "@apollo/client";
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
+import ProductDetails from '../Product/ProductDetails';
 
 const PRODUCTS_QUERY = gql`
 query{
@@ -35,15 +36,16 @@ query{
 `;
 const Shop = () => {
     const [cart, setCart] = useState([]);
+    const [productDetails,setProductDetails]=useState({});
     const { data, loading, error } = useQuery(PRODUCTS_QUERY);
     console.log(data);
      if (loading) return "Loading...";
     if (error) return <pre>{error.message}</pre>
 
-    // const handleDetails=(data)=>{
-
-    // }
-
+    const handleDetails=(productDetails)=>{
+      setProductDetails(productDetails)
+    }
+    // console.log(productDetails);
     // const handleAddToCart = (selectedProduct) =>{
     //     console.log(selectedProduct);
     //     let newCart = [];
@@ -70,6 +72,7 @@ const Shop = () => {
                         data={data}
                         index={index}
                         image={image}
+                        handleDetails={handleDetails}
                         // handleAddToCart={handleAddToCart}
                         ></Product>)
                 }
@@ -78,6 +81,11 @@ const Shop = () => {
                 <Cart cart={cart}>
                     
                 </Cart>
+            </div>
+            <div>
+            <ProductDetails
+            productDetails={productDetails}
+            />
             </div>
         </div>
     );

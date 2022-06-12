@@ -19,7 +19,7 @@ function App() {
     <div>
        <Header></Header>
        <Shop/>
-       <ProductDetails/>
+       
     </div>
   );
 }
